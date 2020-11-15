@@ -9,9 +9,11 @@ const spotify = require('./spotify');
 async function detectIntent(query, psid) {
   const projectId = process.env.GOOGLE_CLOUD_PROJECT_ID;
 
-  const sessionClient = new dialogflow.SessionsClient({
-    credentials: JSON.parse(process.env.GCS_SERVICE_ACCOUNT),
-  });
+  const clientOptions = {};
+  if (process.env.NODE_ENV === 'production') {
+    clientOptions.credentials = JSON.parse(process.env.GCS_SERVICE_ACCOUNT);
+  }
+  const sessionClient = new dialogflow.SessionsClient(clientOptions);
   const sessionPath = sessionClient.projectAgentSessionPath(projectId, psid);
 
   const request = {
