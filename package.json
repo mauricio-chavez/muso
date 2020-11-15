@@ -1,0 +1,32 @@
+{
+  "name": "muso",
+  "version": "1.0.0",
+  "description": "Music Chatbot",
+  "main": "app.js",
+  "author": "Mauricio Chávez Olea <mauriciochavezolea@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/dialogflow": "^3.3.0",
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^4.0.0",
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "node app",
+    "start:dev": "dotenv nodemon app",
+    "start:promises": "dotenv -- node --unhandled-rejections=strict app",
+    "db:sync": "node scripts/database sync",
+    "db:drop": "node scripts/database drop"
+  }
+}
