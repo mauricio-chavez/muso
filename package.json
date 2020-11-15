@@ -27,6 +27,7 @@
     "start:dev": "dotenv nodemon app",
     "start:promises": "dotenv -- node --unhandled-rejections=strict app",
     "db:sync": "node scripts/database sync",
-    "db:drop": "node scripts/database drop"
+    "db:drop": "node scripts/database drop",
+    "messenger:whitelist": "node scripts/messenger whitelist"
   }
 }

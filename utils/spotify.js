@@ -244,13 +244,6 @@ function getTopListTemplate(items, type) {
       payload: {
         template_type: 'generic',
         elements: elements,
-        // buttons: [
-        //   {
-        //     title: 'View More',
-        //     type: 'postback',
-        //     payload: 'payload',
-        //   },
-        // ],
       },
     },
   };
@@ -278,6 +271,8 @@ function getLoginGenericTemplate(id) {
             default_action: {
               type: 'web_url',
               url: loginUrl,
+              messenger_extensions: true,
+              webview_height_ratio: 'TALL',
             },
             buttons: [
               {
