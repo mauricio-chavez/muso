@@ -14,7 +14,7 @@ const app = express();
 app.use(morgan('tiny'));
 
 // Security
-app.use(helmet());
+// app.use(helmet());
 app.use(cors());
 
 // Body Parser
