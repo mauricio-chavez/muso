@@ -6,9 +6,8 @@ switch (action) {
     const domains = [];
     for (let i = 2; i < process.argv.length; i++) {
       const domain = process.argv[i];
-      domains.push(push);
+      domains.push(domain);
     }
-    const url = process.argv[3];
     axios
       .post(
         'https://graph.facebook.com/v9.0/me/messenger_profile',
@@ -23,9 +22,9 @@ switch (action) {
       )
       .then(response => {
         if (response.data.result) {
-          console.log(`${url} has been successfully added to whitelist.`);
+          console.log(`${domains.join(', ')} has been successfully added to whitelist.`);
         } else {
-          console.log(`An error ocurred while adding ${url} to whitelist.`);
+          console.log(`An error ocurred while adding ${domains.join(', ')}} to whitelist.`);
         }
       });
     break;
