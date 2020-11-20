@@ -31,7 +31,11 @@ async function detectIntent(query, psid) {
 
   if (result.intent.displayName === 'Top Spotify') {
     const type = result.parameters.fields['music-entity'].stringValue;
-    return await spotify.sendTopListResponse(type, psid);
+    console.log('result.parameters.fields', result.parameters.fields);
+    if (type)
+      return await spotify.sendTopListResponse(type, psid);
+    else
+      return { text: 'Algo salió mal, pero estoy trabajando en repararlo 🤖' };
   } else {
     return { text: result.fulfillmentText };
   }
