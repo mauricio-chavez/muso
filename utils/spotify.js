@@ -86,7 +86,7 @@ async function sendTopListResponse(type, psid) {
       response = await getTopList(type, user);
     } catch (err) {
       // At this point, maybe is not authenticated
-      if (err.response.status === 403) {
+      if (err.response && err.response.status === 403) {
         // We update user's tokens and retry getting display name
         const success = getOrUpdateTokens(
           user.refreshToken,
